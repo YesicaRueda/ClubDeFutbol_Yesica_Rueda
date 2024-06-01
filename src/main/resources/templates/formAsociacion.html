@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORMULARIO ASOCIACION</title>
+</head>
+
+<body>
+    <div class="contener-all">
+        <h1>FORMULARIO ASOCIACION</h1>
+        <form th:action="@{/formAsociacion}" th:object="${asociacion}" method="post">
+            <div class="contener-intermediate">
+                <div class="contener-inputs">
+                    <input class="input-text" type="text" name="id" id="id" placeholder="id" th:field="*{id}" />
+                    <input class="input-text" type="text" name="nombre" id="nombre" placeholder="nombre" th:field="*{nombre}" />
+                    <input class="input-text" type="text" name="pais" id="pais" placeholder="pais" th:field="*{pais}" />
+                    <input class="input-text" type="text" name="presidente" id="presidente" placeholder="presidente" th:field="*{presidente}" />
+                </div>
+                <button type="submit" class="button">ENVIAR</button>
+				
+            </div>
+			
+			
+        </form>
+    </div>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f4f4f9;
+        }
+
+        .contener-all {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        h1 {
+            padding: 20px 0;
+            color: #660066;
+        }
+
+        .contener-intermediate {
+            width: 400px;
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .contener-inputs {
+            width: 100%;
+            height: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .input-text {
+            padding: 10px 30px;
+            border-radius: 20px;
+            outline: none;
+            border: 1px solid #ddd;
+            transition: border-color 0.3s ease;
+        }
+
+        .input-text:hover,
+        .input-text:focus {
+            border-color: #660066;
+        }
+
+        .button {
+            padding: 10px 25px;
+            font-weight: 700;
+            border-radius: 10px;
+            background-color: #660066;
+            color: white;
+            border: 1px solid #660066;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: white;
+            color: #660066;
+        }
+    </style>
+</body>
+
+</html>

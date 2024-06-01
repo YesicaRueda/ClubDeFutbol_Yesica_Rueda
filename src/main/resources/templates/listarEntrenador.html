@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LISTAR ENTRENADOR</title>
+</head>
+
+<body>
+    <div class="contener-all">
+        <div class="contener-intermediate">
+            <h1>LISTA ENTRENADORES</h1>
+            <div class="contener-table">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Edad</th>
+                            <th>Nacionalidad</th>
+                            <th colspan="2">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="entrenador: ${entrenador}">
+                            <td th:text="${entrenador.id}"></td>
+                            <td th:text="${entrenador.nombre}"></td>
+                            <td th:text="${entrenador.apellido}"></td>
+                            <td th:text="${entrenador.edad}"></td>
+                            <td th:text="${entrenador.nacionalidad}"></td>
+                            <td><a class="btn btn-primary btn-xs" th:href="@{/formEntrenador/} + ${entrenador.id}" th:text="'editar'"></a></td>
+                            <td><a class="btn btn-danger btn-xs" th:href="@{/eliminarEntrenador/} + ${entrenador.id}" th:text="'eliminar'" onclick="return confirm('Estás seguro que quieres eliminar?');"></a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="contener-enlaces">
+                <a class="button" th:href="@{/}">VOLVER</a>
+                <a class="button" th:href="@{/formEntrenador}">AGREGAR ENTRENADOR</a>
+            </div>
+        </div>
+    </div>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: white;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .contener-all {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f4f4f9;
+            padding: 20px;
+        }
+
+        .contener-intermediate {
+            width: 100%;
+            max-width: 900px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contener-intermediate h1 {
+            margin-bottom: 20px;
+            color: #660066;
+        }
+
+        .contener-table {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .table thead {
+            background-color: #660066;
+            color: white;
+        }
+
+        .table th, .table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .table th {
+            text-transform: uppercase;
+        }
+
+        .table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .table tr:hover {
+            background-color: #ddd;
+        }
+
+        .contener-enlaces {
+            display: flex;
+            gap: 20px;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .button {
+            padding: 10px 20px;
+            font-weight: 700;
+            border-radius: 5px;
+            background-color: #660066;
+            color: white;
+            border: none;
+            text-align: center;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #330033;
+            transform: translateY(-3px);
+        }
+
+        .btn {
+            padding: 5px 10px;
+            border-radius: 3px;
+            color: white;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background-color: #330033;
+        }
+
+        .btn-primary:hover {
+            background-color: #330033;
+        }
+
+        .btn-danger {
+            background-color: #330033;
+        }
+
+        .btn-danger:hover {
+            background-color: #330033;
+        }
+    </style>
+</body>
+
+</html>

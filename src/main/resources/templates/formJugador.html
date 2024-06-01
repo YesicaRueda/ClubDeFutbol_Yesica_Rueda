@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORMULARIO JUGADOR</title>
+</head>
+
+<body>
+    <div class="contener-all">
+        <h1>FORMULARIO JUGADOR</h1>
+        <form th:action="@{/formJugador}" th:object="${jugador}" method="post">
+            <div class="contener-intermediate">
+                <div class="contener-inputs">
+                    <input class="input-text" type="text" name="id" id="id" placeholder="ID" th:field="*{id}" />
+                    <input class="input-text" type="text" name="nombre" id="nombre" placeholder="Nombre" th:field="*{nombre}" />
+                    <input class="input-text" type="text" name="apellido" id="apellido" placeholder="Apellido" />
+                    <input class="input-text" type="number" name="numero" id="numero" placeholder="Numero" />
+                    <input class="input-text" type="text" name="posicion" id="posicion" placeholder="Posición" />
+                </div>
+                <div class="button-container">
+                    <button type="submit" class="button">Enviar</button>
+                    <a class="volver-button" href="/">Volver</a>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9;
+            color: #2a225a;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contener-all {
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #660066;
+        }
+
+        .contener-inputs {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .input-text {
+            width: calc(100% - 40px);
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .input-text:hover {
+            border-color: #660066;
+        }
+
+        .input-text:focus {
+            border-color: #330033;
+            outline: none;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .button {
+            flex: 1;
+            padding: 10px 20px;
+            font-weight: 700;
+            border-radius: 5px;
+            background-color: #660066;
+            color: white;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #330033;
+            transform: translateY(-3px);
+        }
+
+        .volver-button {
+            flex: 1;
+            margin-left: 10px;
+            padding: 10px 20px;
+            font-weight: 700;
+            border-radius: 5px;
+            background-color: #660066;
+            color: white;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .volver-button:hover {
+            background-color: #330033;
+            transform: translateY(-3px);
+        }
+    </style>
+</body>
+
+</html>

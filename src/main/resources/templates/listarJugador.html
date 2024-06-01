@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LISTAR JUGADOR</title>
+</head>
+
+<body>
+    <div class="contener-all">
+        <div class="contener-intermediate">
+            <h1>LISTAR JUGADORES</h1>
+            <div class="contener-table">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>nombre</th>
+                            <th>apellido</th>
+                            <th>numero</th>
+                            <th>posicion</th>
+                            <th colspan="2">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="jugador: ${jugador}">
+                            <td th:text="${jugador.id}"></td>
+                            <td th:text="${jugador.nombre}"></td>
+                            <td th:text="${jugador.apellido}"></td>
+                            <td th:text="${jugador.numero}"></td>
+                            <td th:text="${jugador.posicion}"></td>
+                            <td><a class="btn btn-primary btn-xs" th:href="@{/formJugador/} + ${jugador.id}" th:text="'editar'" style="background-color: #660066;"></a></td>
+                            <td><a class="btn btn-danger btn-xs" th:href="@{/eliminarJugador/} + ${jugador.id}" th:text="'eliminar'" onclick="return confirm('Estás seguro que quieres eliminar?');" style="background-color: #660066;"></a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="contener-enlaces">
+                <a th:href="@{/formJugador}" th:text="'AGREGAR JUGADOR'" style="background-color: #660066;"></a>
+                <a th:href="@{/}" th:text="'VOLVER'" style="background-color: #660066;"></a>
+            </div>
+        </div>
+    </div>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: white;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .contener-all {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f4f4f9;
+            padding: 20px;
+        }
+
+        .contener-intermediate {
+            width: 100%;
+            max-width: 900px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contener-intermediate h1 {
+            margin-bottom: 20px;
+            color: #660066;
+        }
+
+        .contener-enlaces {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .contener-enlaces a {
+            padding: 10px 20px;
+            text-align: center;
+            text-transform: uppercase;
+            color: white;
+            text-decoration: none;
+            background-color: #660066;
+            border-radius: 5px;
+            font-weight: 700;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .contener-enlaces a:hover {
+            background-color: #330033;
+            transform: translateY(-3px);
+        }
+
+        .contener-table {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .table thead {
+            background-color: #330033;
+            color: white;
+        }
+
+        .table th,
+        .table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .table th {
+            text-transform: uppercase;
+            background-color: #660066;
+            color: white;
+        }
+
+        .table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .table tr:hover {
+            background-color: #ddd;
+        }
+
+        .btn {
+            padding: 5px 10px;
+            border-radius: 3px;
+            color: white;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background-color: #660066;
+        }
+
+        .btn-primary:hover {
+            background-color: #660066;
+        }
+
+        .btn-danger {
+            background-color: #660066;
+        }
+
+        .btn-danger:hover {
+            background-color: #660066;
+        }
+    </style>
+</body>
+
+</html>
+

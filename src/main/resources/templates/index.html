@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INDEX</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #7a007a; /* Morado más claro */
+            color: white;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        nav {
+            width: 100%;
+            background-color: #550055; /* Morado ligeramente oscuro */
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #d4d4ff; /* Blanco ligeramente azul para el hover */
+        }
+
+        .header {
+            text-align: center;
+            margin-top: 50px;
+            max-width: 800px;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #ffffff; /* Blanco puro */
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            margin: 0 auto 40px;
+            color: #e0e0e0; /* Blanco grisáceo */
+        }
+
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background-color: #550055; /* Morado ligeramente oscuro */
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 300px;
+            text-align: center;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card h2 {
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+            color: #ffffff; /* Blanco puro */
+        }
+
+        .card p {
+            font-size: 1rem;
+            color: #e0e0e0; /* Blanco grisáceo */
+        }
+
+        @media (max-width: 768px) {
+            .cards {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div>
+            <a th:href="@{/listarclub}">CLUB</a>
+            <a th:href="@{/listarEntrenador}">ENTRENADOR</a>
+            <a th:href="@{/listarJugador}">JUGADOR</a>
+            <a th:href="@{/listarAsociacion}">ASOCIACION</a>
+            <a th:href="@{/listarCompeticion}">COMPETICION</a>
+        </div>
+        <a th:href="@{/logout}">CERRAR SESION</a>
+    </nav>
+
+    <div class="header">
+        <h1>Escuela de Fútbol</h1>
+        <p>Ofrecemos una variedad de actividades dinámicas y entretenidas diseñadas para el desarrollo integral de los deportistas. A través de métodos lúdicos, educativos y competitivos, ayudamos a mejorar las habilidades físicas, mentales, emocionales y sociales de nuestros jugadores.</p>
+    </div>
+
+    <div class="cards">
+        <div class="card">
+            <h2>Programa</h2>
+            <p>Desde 2024, hemos estado desarrollando programas de fútbol que promueven la paz, mejoran habilidades y destrezas, y fortalecen competencias en los jóvenes.</p>
+        </div>
+        <div class="card">
+            <h2>Objetivo</h2>
+            <p>Nuestro objetivo es fomentar el desarrollo integral de jóvenes.</p>
+        </div>
+        <div class="card">
+            <h2>Grupo</h2>
+            <p>Atendemos jóvenes que estén cursando educación básica y media, en colaboración con instituciones locales.</p>
+        </div>
+    </div>
+</body>
+
+</html>
+
+
